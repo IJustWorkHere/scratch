@@ -405,7 +405,7 @@ def get_login():
     '''
     Returns username/password as a tuple
     '''
-    username = 'NITC_user'
+    username = 'user'
     passwd = get_password()
     return (username, passwd)
 
