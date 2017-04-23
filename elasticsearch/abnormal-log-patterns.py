@@ -310,15 +310,16 @@ class Checks(object):
                                                                                         values[avg],
                                                                                         values[last_hour])
 
-                logger.info('Apache HTTP Status Search', \
-                            extra={'http_status_code': code,
-                                   'http_code_count_last_30_days': values[last_30_days],
-                                   'http_code_count_last_hour': values[last_hour],
-                                   'standard_deviation': values[stdev],
-                                   'average': values[avg],
-                                   'will_alarm': alarm
-                                   }
-                            )
+                    logger.info('Log Entries Per Host By Type',
+                                extra = {
+                                    'node': node,
+                                    'source': source,
+                                    'last_30_days': last_30_values,
+                                    'standard_deviation': values[stdev],
+                                    'last_hour': values[last_hour],
+                                    'average': values[avg],
+                                    'will_alarm': alarm
+                                })
 
     def source_per_host_count(self):
         '''
@@ -491,16 +492,16 @@ class Checks(object):
                                                                                                       values[avg],
                                                                                                       values[last_hour])
 
-                        logger.info('Log Entries Per Host By Type', \
-                                    extra={'node': node,
-                                           'source': source,
-                                           'last_30_days': last_30_values,
-                                           'standard_deviation': values[stdev],
-                                           'last_hour': values[last_hour],
-                                           'average': values[avg],
-                                           'will_alarm': alarm
-                                           }
-                                    )
+                        logger.info('Log Entries Per Host By Type',
+                                    extra = {
+                                        'node': node,
+                                        'source': source,
+                                        'last_30_days': last_30_values,
+                                        'standard_deviation': values[stdev],
+                                        'last_hour': values[last_hour],
+                                        'average': values[avg],
+                                        'will_alarm': alarm
+                                    })
 
 
 class Main(Checks):
