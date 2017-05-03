@@ -37,7 +37,7 @@ class SFTP(object):
 
     def cleanup(self):
         """
-        A convenience function that is used to cleanup transport and sftp objects
+        A convenience method that is used to cleanup transport and sftp objects
         :return: None
         """
         if self.sftp:
