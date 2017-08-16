@@ -207,10 +207,10 @@ class SFTP(object):
         :param dst: Absolute path of the remote file
         :return: None
         """
-        server        = Config.pegasys_server_name
-        port          = Config.pegasys_server_port
-        user          = Config.pegasys_server_username
-        identity_file = Config.pegasys_server_identity_file
+        server        = Config.server_name
+        port          = Config.server_port
+        user          = Config.server_username
+        identity_file = Config.server_identity_file
 
         try:
             sftp_client = cls(server, port, user, identity_file)
