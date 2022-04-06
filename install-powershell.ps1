@@ -246,17 +246,8 @@ Function Add-PathTToSettings {
     $Key.SetValue("PATH", $NewPathValue, $PathValueKind)
 }
 
-if (-not $IsWinEnv) {
-    $architecture = "x64"
-} elseif ($(Get-ComputerInfo -Property OsArchitecture).OsArchitecture -eq "ARM 64-bit Processor") {
-    $architecture = "arm64"
-} else {
-    switch ($env:PROCESSOR_ARCHITECTURE) {
-        "AMD64" { $architecture = "x64" }
-        "x86" { $architecture = "x86" }
-        default { throw "PowerShell package for OS architecture '$_' is not supported." }
-    }
-}
+$architecture = "x64"
+
 $tempDir = Join-Path ([System.IO.Path]::GetTempPath()) ([System.IO.Path]::GetRandomFileName())
 $null = New-Item -ItemType Directory -Path $tempDir -Force -ErrorAction SilentlyContinue
 try {
